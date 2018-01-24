@@ -11,7 +11,11 @@ app = Flask(__name__)
 def homepage():
     """A placeholder page."""
 
-    return render_template("homepage.html")
+    students = hackbright.get_all_students()
+
+    projects = hackbright.get_all_projects()
+
+    return render_template("homepage.html", students=students, projects=projects)
 
 
 @app.route("/student")
